@@ -23,12 +23,12 @@ public class DriveCommand extends CommandBase {
 
     @Override
     public void execute(){
-        robotDrive.setSpeed(leftspeed, rightspeed);
+        robotDrive.arcadeDrive(leftspeed, rightspeed);
     }
 
     @Override
     public void end (boolean interrupted){
-        robotDrive.setSpeed(0, 0);
+        robotDrive.arcadeDrive(0, 0);
     }
 
     @Override
