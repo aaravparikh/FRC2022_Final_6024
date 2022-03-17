@@ -11,36 +11,33 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
-
 import com.kauailabs.navx.frc.AHRS;
 
 public class DriveSubsystem extends SubsystemBase {
   /** Creates a new DriveSubsystem. */
 
-  private final WPI_TalonSRX m_frontLeft = new WPI_TalonSRX(MotorConstants.kDriveLeftFront);
-  private final WPI_TalonSRX m_rearLeft = new WPI_TalonSRX(MotorConstants.kDriveLeftBack);
-  private final WPI_TalonSRX m_frontRight = new WPI_TalonSRX(MotorConstants.kDriveRightFront);
-  private final WPI_TalonSRX m_rearRight = new WPI_TalonSRX(MotorConstants.kDriveRightBack);
+  private final WPI_TalonSRX FrontLeft = new WPI_TalonSRX(MotorConstants.kDriveLeftFront);
+  private final WPI_TalonSRX BackLeft = new WPI_TalonSRX(MotorConstants.kDriveLeftBack);
+  private final WPI_TalonSRX FrontRight = new WPI_TalonSRX(MotorConstants.kDriveRightFront);
+  private final WPI_TalonSRX BackRight = new WPI_TalonSRX(MotorConstants.kDriveRightBack);
 
   private final AHRS m_navX = new AHRS();
 
-private final MotorControllerGroup m_leftMotors = 
-  new MotorControllerGroup(m_frontLeft, m_rearLeft);
-private final MotorControllerGroup m_rightMotors = 
-  new MotorControllerGroup(m_frontRight, m_rearRight);
+  private final MotorControllerGroup LeftGroup = new MotorControllerGroup(FrontLeft, BackLeft);
+  private final MotorControllerGroup RightGroup = new MotorControllerGroup(FrontRight, BackRight);
   
 
-private final DifferentialDrive m_drive = new DifferentialDrive(m_leftMotors,m_rightMotors);
+  private final DifferentialDrive Drive = new DifferentialDrive(LeftGroup, RightGroup);
 
   public DriveSubsystem() {
 
-    m_rightMotors.setInverted(true);
+    RightGroup.setInverted(true);
 
 
   }
 
-  public void arcadeDrive(double fwd,double rot){
-    m_drive.arcadeDrive(fwd, rot);
+  public void arcadeDrive(double leftSpeed, double rightSpeed){
+    Drive.arcadeDrive(leftSpeed, rightSpeed);
   }
 
   public double getHeading(){
@@ -59,7 +56,6 @@ private final DifferentialDrive m_drive = new DifferentialDrive(m_leftMotors,m_r
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-
     SmartDashboard.putNumber("Compass Heading", this.getHeading());
     SmartDashboard.putNumber("Turn Rate", this.getTurnRate());
     SmartDashboard.putNumber("Heading", this.getRawHeading());

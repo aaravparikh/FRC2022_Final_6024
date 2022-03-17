@@ -16,8 +16,21 @@ package frc.robot;
  */
 public final class Constants {
 
+    public final class JoystickConstants {
+        public static final int PrimaryStick = 0;
+        public static final int SecondaryStick = 1;
+        public static final int Brake = 1;
+        public static final int Boost = 2;
+        public static final int Intake = 4;
+        public static final int Outtake = 6;
+        public static final int StraightElevatorUp = 5;
+        public static final int StraightElevatorDown = 3;
+        public static final int AngledElevatorUp = 6;
+        public static final int AngledElevatorDown = 4;
+    }
+
     public final class MotorConstants{
-        public static final int kDriveLeftFront = 0;
+        public static final int kDriveLeftFront = 43;
         public static final int kDriveRightFront = 0;
         public static final int kDriveLeftBack = 0;
         public static final int kDriveRightBack = 0;

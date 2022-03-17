@@ -1,34 +1,38 @@
 package frc.robot.commands;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveSubsystem;
 
 public class DriveCommand extends CommandBase {
     
-    private DriveSubsystem robotDrive;
-    private double leftspeed;
-    private double rightspeed;
+    private DriveSubsystem RobotDrive;
+    private DoubleSupplier LeftSpeed;
+    private DoubleSupplier RightSpeed;
 
-    public DriveCommand(DriveSubsystem robotDrive, double leftspeed, double rightspeed){
-        this.robotDrive = robotDrive;
-        this.leftspeed = leftspeed;
-        this.rightspeed = rightspeed;
+    public DriveCommand(DriveSubsystem robotDrive, DoubleSupplier leftspeed, DoubleSupplier rightspeed){
+        this.RobotDrive = robotDrive;
+        this.LeftSpeed = leftspeed;
+        this.RightSpeed = rightspeed;
         addRequirements(robotDrive);
     }
 
     @Override
     public void initialize(){
-
+        
     }
 
     @Override
     public void execute(){
-        robotDrive.arcadeDrive(leftspeed, rightspeed);
+        double LSpeed = LeftSpeed.getAsDouble();
+        double RSpeed = RightSpeed.getAsDouble();
+        RobotDrive.arcadeDrive(LSpeed, RSpeed);
     }
 
     @Override
     public void end (boolean interrupted){
-        robotDrive.arcadeDrive(0, 0);
+        //RobotDrive.arcadeDrive(0, 0);
     }
 
     @Override
