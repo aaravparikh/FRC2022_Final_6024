@@ -50,19 +50,21 @@ public final class Constants {
     }
 
     public final class SpeedConstants{
-        public static final double kMaxDriveSpeed = 0.8;
+        // public static final double kMaxDriveSpeed = 0.8;
         
         public static final double kIntakeSpeed = 0.5;
         public static final double kFeedSpeed = 0.5;
 
-        public static final double kPrimaryUpSpeed = 0.5;
-        public static final double kSecondaryUpSpeed = 0.5;
+        public static final double kPrimaryUpSpeed = 0.75;
+        public static final double kSecondaryUpSpeed = 0.75;
     }
 
+    /*
     public final class ShooterPIDConstants {
         public static final double kP = 0; // update
         public static final double kI = 0; // update
         public static final double kD = 0; // update
         public static final double k_Setpoint = 0; // update
     }
+    */
 }
