@@ -10,15 +10,19 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
 import frc.robot.Constants.SpeedConstants;
 
-public class ShooterSubsystem extends SubsystemBase {
+public class FeederSubsystem extends SubsystemBase {
   /** Creates a new ShooterSubsystem. */
 
-  private final WPI_TalonSRX m_cannon = new WPI_TalonSRX(MotorConstants.kShooter);
+  private final WPI_TalonSRX feeder = new WPI_TalonSRX(MotorConstants.kFeeder);
 
-  public ShooterSubsystem() {}
+  public FeederSubsystem() {}
 
-  public void shoot(double speed){
-    m_cannon.set(speed);
+  public void feeding(){
+    feeder.set(SpeedConstants.kFeedSpeed);
+  }
+
+  public void recalling(){
+      feeder.set(-SpeedConstants.kFeedSpeed);
   }
   
   @Override
