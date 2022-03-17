@@ -18,19 +18,21 @@ public final class Constants {
 
     public final class JoystickConstants {
         public static final int PrimaryStick = 0;
-        public static final int SecondaryStick = 1;
         public static final int Brake = 1;
         public static final int Boost = 2;
         public static final int Intake = 3;
-        public static final int Outtake = 5;
+        public static final int Outtake = 4;
+
+        public static final int SecondaryStick = 1;
         public static final int StraightElevatorUp = 8;
         public static final int StraightElevatorDown = 7;
         public static final int AngledElevatorUp = 10;
         public static final int AngledElevatorDown = 9;
         public static final int FeedIn = 4;
         public static final int FeedOut = 6;
+        public static final int Shoot = 1;
 
-        // Add New Joystick Axis
+        // Add New Joystick Axis For US (POV)
     }
 
     public final class MotorConstants{
@@ -58,13 +60,4 @@ public final class Constants {
         public static final double kPrimaryUpSpeed = 0.75;
         public static final double kSecondaryUpSpeed = 0.75;
     }
-
-    /*
-    public final class ShooterPIDConstants {
-        public static final double kP = 0; // update
-        public static final double kI = 0; // update
-        public static final double kD = 0; // update
-        public static final double k_Setpoint = 0; // update
-    }
-    */
 }

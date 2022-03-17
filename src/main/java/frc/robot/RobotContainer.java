@@ -55,6 +55,7 @@ public class RobotContainer {
     new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.AngledDown());
     new JoystickButton(SystemsStick, JoystickConstants.FeedIn).whileHeld(() -> Feeder.feeding());
     new JoystickButton(SystemsStick, JoystickConstants.FeedOut).whileHeld(() -> Feeder.recalling());
+    new JoystickButton(SystemsStick, JoystickConstants.Shoot).whileHeld(() -> Shooter.shoot(1));
 
     RobotDrive.setDefaultCommand(new DriveCommand (RobotDrive, () -> DriveStick.getY()*0.75, () -> DriveStick.getZ()*0.75));
     Elevator.setDefaultCommand(new StraightElevatorCommand (Elevator, false, false));
@@ -63,7 +64,7 @@ public class RobotContainer {
     Feeder.setDefaultCommand(new FeederCommand (Feeder, false, false));
     Shooter.setDefaultCommand(new ShooterCommand (Shooter, false));
   }
-  
+
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
