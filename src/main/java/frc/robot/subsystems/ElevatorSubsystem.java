@@ -13,25 +13,25 @@ import frc.robot.Constants.SpeedConstants;
 public class ElevatorSubsystem extends SubsystemBase {
   /** Creates a new ElevatorSubsystem. */
 
-  private final WPI_TalonSRX m_primary = new WPI_TalonSRX(MotorConstants.kPrimaryElevator);
-  private final WPI_TalonSRX m_secondary = new WPI_TalonSRX(MotorConstants.kSecondaryElevator);
+  private final WPI_TalonSRX StraightElevator = new WPI_TalonSRX(MotorConstants.kPrimaryElevator);
+  private final WPI_TalonSRX AngledElevator = new WPI_TalonSRX(MotorConstants.kSecondaryElevator);
 
   public ElevatorSubsystem() {}
 
   public void primaryUp(){
-    m_primary.set(SpeedConstants.kPrimaryUpSpeed);
-  }
-
-  public void secondaryUp(){
-    m_secondary.set(SpeedConstants.kSecondaryUpSpeed);
+    StraightElevator.set(SpeedConstants.kPrimaryUpSpeed);
   }
 
   public void primaryDown(){
-    m_primary.set(-SpeedConstants.kPrimaryUpSpeed);
+    StraightElevator.set(-SpeedConstants.kPrimaryUpSpeed);
+  }
+
+  public void secondaryUp(){
+    AngledElevator.set(SpeedConstants.kSecondaryUpSpeed);
   }
 
   public void secondaryDown(){
-    m_secondary.set(-SpeedConstants.kSecondaryUpSpeed);
+    AngledElevator.set(-SpeedConstants.kSecondaryUpSpeed);
   }
 
   @Override
