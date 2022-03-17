@@ -28,9 +28,6 @@ public class StraightElevatorCommand extends CommandBase {
         else if (GoDown == true){
             Elevator.primaryDown();
         }
-        else {
-            Elevator.stopPrimary();
-        }
     }
 
     @Override

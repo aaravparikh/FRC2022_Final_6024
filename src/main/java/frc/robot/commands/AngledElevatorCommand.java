@@ -28,9 +28,6 @@ public class AngledElevatorCommand extends CommandBase {
         else if (DownSlant == true){
             Elevator.secondaryDown();
         }
-        else {
-            Elevator.stopSecondary();
-        }
     }
 
     @Override

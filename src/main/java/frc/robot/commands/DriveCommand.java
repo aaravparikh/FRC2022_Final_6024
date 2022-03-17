@@ -32,7 +32,6 @@ public class DriveCommand extends CommandBase {
 
     @Override
     public void end (boolean interrupted){
-        //RobotDrive.arcadeDrive(0, 0);
     }
 
     @Override
