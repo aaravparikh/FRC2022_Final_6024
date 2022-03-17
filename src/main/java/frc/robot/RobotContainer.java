@@ -46,9 +46,9 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     new JoystickButton(DriveStick, JoystickConstants.Brake).whileHeld(() -> RobotDrive.arcadeDrive(0, 0));
-    new JoystickButton(DriveStick, JoystickConstants.Boost).whileHeld(() -> RobotDrive.arcadeDrive(DriveStick.getY(), 0));
+    new JoystickButton(DriveStick, JoystickConstants.Boost).whileHeld(() -> RobotDrive.arcadeDrive(DriveStick.getY(), DriveStick.getZ()));
     new JoystickButton(DriveStick, JoystickConstants.Intake).whileHeld(() -> Intake.intaking());
-    new JoystickButton(DriveStick, JoystickConstants.Intake).whileHeld(() -> Intake.outtaking());
+    new JoystickButton(DriveStick, JoystickConstants.Outtake).whileHeld(() -> Intake.outtaking());
     new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorUp).whileHeld(() -> Elevator.StraightUp());
     new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorDown).whileHeld(() -> Elevator.StraightDown());
     new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.AngledUp());
@@ -56,7 +56,7 @@ public class RobotContainer {
     new JoystickButton(SystemsStick, JoystickConstants.FeedIn).whileHeld(() -> Feeder.feeding());
     new JoystickButton(SystemsStick, JoystickConstants.FeedOut).whileHeld(() -> Feeder.recalling());
 
-    RobotDrive.setDefaultCommand(new DriveCommand (RobotDrive, () -> DriveStick.getY(), () -> DriveStick.getZ()));
+    RobotDrive.setDefaultCommand(new DriveCommand (RobotDrive, () -> DriveStick.getY()*0.75, () -> DriveStick.getZ()*0.75));
     Elevator.setDefaultCommand(new StraightElevatorCommand (Elevator, false, false));
     Elevator.setDefaultCommand(new AngledElevatorCommand (Elevator, false, false));
     Intake.setDefaultCommand(new IntakeCommand (Intake, false, false));
