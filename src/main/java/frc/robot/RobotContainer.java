@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.*;
-import frc.robot.commands.DriveCommand;
+import frc.robot.commands.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.JoystickConstants;
@@ -27,8 +27,8 @@ public class RobotContainer {
   private final DriveSubsystem RobotDrive = new DriveSubsystem();
   private final ElevatorSubsystem Elevator = new ElevatorSubsystem();
   private final ShooterSubsystem Shooter = new ShooterSubsystem();
-
-//  private final DriveCommand Drive = new DriveCommand(RobotDrive, DriveStick.getY(), DriveStick.getZ());
+  private final IntakeSubsystem Intake = new IntakeSubsystem();
+  private final FeederSubsystem Feeder = new FeederSubsystem();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -43,16 +43,25 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
+
   private void configureButtonBindings() {
     new JoystickButton(DriveStick, JoystickConstants.Brake).whileHeld(() -> RobotDrive.arcadeDrive(0, 0));
     new JoystickButton(DriveStick, JoystickConstants.Boost).whileHeld(() -> RobotDrive.arcadeDrive(DriveStick.getY(), 0));
+    new JoystickButton(DriveStick, JoystickConstants.Intake).whileHeld(() -> Intake.intaking());
+    new JoystickButton(DriveStick, JoystickConstants.Intake).whileHeld(() -> Intake.outtaking());
     new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorUp).whileHeld(() -> Elevator.primaryUp());
     new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorDown).whileHeld(() -> Elevator.primaryDown());
     new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.secondaryUp());
     new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.secondaryDown());
+    new JoystickButton(SystemsStick, JoystickConstants.FeedIn).whileHeld(() -> Feeder.feeding());
+    new JoystickButton(SystemsStick, JoystickConstants.FeedOut).whileHeld(() -> Feeder.recalling());
 
     RobotDrive.setDefaultCommand(new DriveCommand (RobotDrive, () -> DriveStick.getY(), () -> DriveStick.getZ()));
-
+    Elevator.setDefaultCommand(new StraightElevatorCommand (Elevator, false, false));
+    Elevator.setDefaultCommand(new AngledElevatorCommand (Elevator, false, false));
+    Intake.setDefaultCommand(new IntakeCommand (Intake, false, false));
+    Feeder.setDefaultCommand(new FeederCommand (Feeder, false, false));
+    Shooter.setDefaultCommand(new ShooterCommand (Shooter, false));
   }
 
   /**
@@ -60,6 +69,7 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
+
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return null;
