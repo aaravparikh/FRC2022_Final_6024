@@ -63,7 +63,7 @@ public class RobotContainer {
     Feeder.setDefaultCommand(new FeederCommand (Feeder, false, false));
     Shooter.setDefaultCommand(new ShooterCommand (Shooter, false));
   }
-
+  
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *

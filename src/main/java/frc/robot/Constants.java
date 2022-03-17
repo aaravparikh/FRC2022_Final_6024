@@ -21,14 +21,14 @@ public final class Constants {
         public static final int SecondaryStick = 1;
         public static final int Brake = 1;
         public static final int Boost = 2;
-        public static final int Intake = 4;
-        public static final int Outtake = 6;
-        public static final int StraightElevatorUp = 5;
-        public static final int StraightElevatorDown = 3;
-        public static final int AngledElevatorUp = 6;
-        public static final int AngledElevatorDown = 4;
-        public static final int FeedIn = 0;
-        public static final int FeedOut = 0;
+        public static final int Intake = 3;
+        public static final int Outtake = 5;
+        public static final int StraightElevatorUp = 8;
+        public static final int StraightElevatorDown = 7;
+        public static final int AngledElevatorUp = 10;
+        public static final int AngledElevatorDown = 9;
+        public static final int FeedIn = 4;
+        public static final int FeedOut = 6;
 
         // Add New Joystick Axis
     }

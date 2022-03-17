@@ -4,7 +4,7 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
 import frc.robot.Constants.SpeedConstants;
@@ -12,8 +12,8 @@ import frc.robot.Constants.SpeedConstants;
 public class ElevatorSubsystem extends SubsystemBase {
   /** Creates a new ElevatorSubsystem. */
 
-  private final WPI_TalonSRX StraightElevator = new WPI_TalonSRX(MotorConstants.kPrimaryElevator);
-  private final WPI_TalonSRX AngledElevator = new WPI_TalonSRX(MotorConstants.kSecondaryElevator);
+  private final VictorSP StraightElevator = new VictorSP(MotorConstants.kPrimaryElevator);
+  private final VictorSP AngledElevator = new VictorSP(MotorConstants.kSecondaryElevator);
 
   public ElevatorSubsystem() {}
 
