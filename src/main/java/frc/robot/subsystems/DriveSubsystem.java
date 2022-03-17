@@ -21,7 +21,7 @@ public class DriveSubsystem extends SubsystemBase {
   private final WPI_TalonSRX FrontRight = new WPI_TalonSRX(MotorConstants.kDriveRightFront);
   private final WPI_TalonSRX BackRight = new WPI_TalonSRX(MotorConstants.kDriveRightBack);
 
-  private final AHRS m_navX = new AHRS();
+  private final AHRS NavX = new AHRS();
 
   private final MotorControllerGroup LeftGroup = new MotorControllerGroup(FrontLeft, BackLeft);
   private final MotorControllerGroup RightGroup = new MotorControllerGroup(FrontRight, BackRight);
@@ -30,10 +30,7 @@ public class DriveSubsystem extends SubsystemBase {
   private final DifferentialDrive Drive = new DifferentialDrive(LeftGroup, RightGroup);
 
   public DriveSubsystem() {
-
     RightGroup.setInverted(true);
-
-
   }
 
   public void arcadeDrive(double leftSpeed, double rightSpeed){
@@ -41,15 +38,15 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public double getHeading(){
-    return m_navX.getCompassHeading();
+    return NavX.getCompassHeading();
   }
 
   public double getTurnRate(){
-    return m_navX.getRate();
+    return NavX.getRate();
   }
 
   public float getRawHeading(){
-    return m_navX.getYaw();
+    return NavX.getYaw();
   }
 
 
