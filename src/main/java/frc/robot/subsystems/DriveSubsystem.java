@@ -26,7 +26,6 @@ public class DriveSubsystem extends SubsystemBase {
   private final MotorControllerGroup LeftGroup = new MotorControllerGroup(FrontLeft, BackLeft);
   private final MotorControllerGroup RightGroup = new MotorControllerGroup(FrontRight, BackRight);
   
-
   private final DifferentialDrive Drive = new DifferentialDrive(LeftGroup, RightGroup);
 
   public DriveSubsystem() {
@@ -56,6 +55,7 @@ public class DriveSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Compass Heading", this.getHeading());
     SmartDashboard.putNumber("Turn Rate", this.getTurnRate());
     SmartDashboard.putNumber("Heading", this.getRawHeading());
-
+    SmartDashboard.putNumber("FrontRight Velocity", FrontRight.getSelectedSensorVelocity());
+    SmartDashboard.putNumber("BackLeft Velocity", BackLeft.getSelectedSensorVelocity());
   }
 }
