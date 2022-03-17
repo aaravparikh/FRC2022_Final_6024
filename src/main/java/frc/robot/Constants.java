@@ -29,6 +29,8 @@ public final class Constants {
         public static final int AngledElevatorDown = 4;
         public static final int FeedIn = 0;
         public static final int FeedOut = 0;
+
+        // Add New Joystick Axis
     }
 
     public final class MotorConstants{
@@ -43,6 +45,8 @@ public final class Constants {
 
         public static final int kPrimaryElevator = 0;
         public static final int kSecondaryElevator = 0;
+
+        // Add CAN IDs
     }
 
     public final class SpeedConstants{
@@ -53,5 +57,12 @@ public final class Constants {
 
         public static final double kPrimaryUpSpeed = 0.5;
         public static final double kSecondaryUpSpeed = 0.5;
+    }
+
+    public final class ShooterPIDConstants {
+        public static final double kP = 0; // update
+        public static final double kI = 0; // update
+        public static final double kD = 0; // update
+        public static final double k_Setpoint = 0; // update
     }
 }

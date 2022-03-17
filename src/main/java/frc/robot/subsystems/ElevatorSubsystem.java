@@ -5,7 +5,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
 import frc.robot.Constants.SpeedConstants;
@@ -18,19 +17,19 @@ public class ElevatorSubsystem extends SubsystemBase {
 
   public ElevatorSubsystem() {}
 
-  public void primaryUp(){
+  public void StraightUp(){
     StraightElevator.set(SpeedConstants.kPrimaryUpSpeed);
   }
 
-  public void primaryDown(){
+  public void StraightDown(){
     StraightElevator.set(-SpeedConstants.kPrimaryUpSpeed);
   }
 
-  public void secondaryUp(){
+  public void AngledUp(){
     AngledElevator.set(SpeedConstants.kSecondaryUpSpeed);
   }
 
-  public void secondaryDown(){
+  public void AngledDown(){
     AngledElevator.set(-SpeedConstants.kSecondaryUpSpeed);
   }
 

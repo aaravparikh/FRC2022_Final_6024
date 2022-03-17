@@ -23,10 +23,10 @@ public class AngledElevatorCommand extends CommandBase {
     @Override
     public void execute(){
         if (UpSlant == true){
-            Elevator.secondaryUp();
+            Elevator.AngledUp();
         }
         else if (DownSlant == true){
-            Elevator.secondaryDown();
+            Elevator.AngledDown();
         }
     }
 

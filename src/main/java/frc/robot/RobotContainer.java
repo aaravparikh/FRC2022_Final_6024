@@ -49,10 +49,10 @@ public class RobotContainer {
     new JoystickButton(DriveStick, JoystickConstants.Boost).whileHeld(() -> RobotDrive.arcadeDrive(DriveStick.getY(), 0));
     new JoystickButton(DriveStick, JoystickConstants.Intake).whileHeld(() -> Intake.intaking());
     new JoystickButton(DriveStick, JoystickConstants.Intake).whileHeld(() -> Intake.outtaking());
-    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorUp).whileHeld(() -> Elevator.primaryUp());
-    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorDown).whileHeld(() -> Elevator.primaryDown());
-    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.secondaryUp());
-    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.secondaryDown());
+    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorUp).whileHeld(() -> Elevator.StraightUp());
+    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorDown).whileHeld(() -> Elevator.StraightDown());
+    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.AngledUp());
+    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.AngledDown());
     new JoystickButton(SystemsStick, JoystickConstants.FeedIn).whileHeld(() -> Feeder.feeding());
     new JoystickButton(SystemsStick, JoystickConstants.FeedOut).whileHeld(() -> Feeder.recalling());
 

@@ -23,10 +23,10 @@ public class StraightElevatorCommand extends CommandBase {
     @Override
     public void execute(){
         if (GoUp == true){
-            Elevator.primaryUp();
+            Elevator.StraightUp();
         }
         else if (GoDown == true){
-            Elevator.primaryDown();
+            Elevator.StraightDown();
         }
     }
 
