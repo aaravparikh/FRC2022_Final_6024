@@ -27,6 +27,8 @@ public final class Constants {
         public static final int StraightElevatorDown = 3;
         public static final int AngledElevatorUp = 6;
         public static final int AngledElevatorDown = 4;
+        public static final int FeedIn = 0;
+        public static final int FeedOut = 0;
     }
 
     public final class MotorConstants{
