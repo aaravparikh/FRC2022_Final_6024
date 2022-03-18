@@ -41,6 +41,10 @@ public class DriveSubsystem extends SubsystemBase {
     Drive.arcadeDrive(leftSpeed, rightSpeed);
   }
 
+  public void SetMax(double Max){
+    Drive.setMaxOutput(Max);
+  }
+
   public double getHeading(){
     return NavX.getCompassHeading();
   }
