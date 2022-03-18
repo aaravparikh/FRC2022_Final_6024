@@ -13,16 +13,15 @@ import frc.robot.Constants.SpeedConstants;
 public class IntakeSubsystem extends SubsystemBase {
   /** Creates a new IntakeSubsystem. */
 
-  private final WPI_TalonSRX intaker = new WPI_TalonSRX(MotorConstants.kPrimaryElevator);
+  private final WPI_TalonSRX intaker = new WPI_TalonSRX(MotorConstants.kIntake);
 
   public IntakeSubsystem() {}
 
-  public void intaking(){
-    intaker.set(SpeedConstants.kIntakeSpeed);
+  public void intaking(double speed){
+    intaker.set(speed);
   }
 
-  public void outtaking(){
-    intaker.set(-SpeedConstants.kIntakeSpeed);
+  public void stopMotor(){
   }
 
   @Override

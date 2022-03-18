@@ -17,20 +17,12 @@ public class ElevatorSubsystem extends SubsystemBase {
 
   public ElevatorSubsystem() {}
 
-  public void StraightUp(){
-    StraightElevator.set(SpeedConstants.kPrimaryUpSpeed);
+  public void Straight(double speed){
+    StraightElevator.set(speed);
   }
 
-  public void StraightDown(){
-    StraightElevator.set(-SpeedConstants.kPrimaryUpSpeed);
-  }
-
-  public void AngledUp(){
-    AngledElevator.set(SpeedConstants.kSecondaryUpSpeed);
-  }
-
-  public void AngledDown(){
-    AngledElevator.set(-SpeedConstants.kSecondaryUpSpeed);
+  public void Angled(double speed){
+    AngledElevator.set(speed);
   }
 
   @Override

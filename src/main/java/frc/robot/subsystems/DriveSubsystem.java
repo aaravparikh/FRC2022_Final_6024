@@ -29,6 +29,11 @@ public class DriveSubsystem extends SubsystemBase {
   private final DifferentialDrive Drive = new DifferentialDrive(LeftGroup, RightGroup);
 
   public DriveSubsystem() {
+    FrontLeft.configFactoryDefault();
+    BackLeft.configFactoryDefault();
+    FrontRight.configFactoryDefault();
+    BackRight.configFactoryDefault();
+
     RightGroup.setInverted(true);
   }
 
@@ -40,22 +45,64 @@ public class DriveSubsystem extends SubsystemBase {
     return NavX.getCompassHeading();
   }
 
-  public double getTurnRate(){
-    return NavX.getRate();
+  public double getXAngle(){
+    return NavX.getRawGyroX();
   }
 
-  public float getRawHeading(){
+  public double getYAngle(){
+    return NavX.getRawGyroY();
+  }
+
+  public double getZAngle(){
+    return NavX.getRawGyroZ();
+  }
+
+  public double getPitch(){
+    return NavX.getPitch();
+  }
+
+  public double getYaw(){
     return NavX.getYaw();
   }
 
+  public double getRoll(){
+    return NavX.getRoll();
+  }
+  
+  public double getXAcceleration(){
+    return NavX.getWorldLinearAccelX();
+  }
+
+  public double getYAcceleration(){
+    return NavX.getWorldLinearAccelY();
+  }
+
+  public double getZAcceleration(){
+    return NavX.getWorldLinearAccelZ();
+  }
+
+  public double getLeftVelocity(){
+    return BackLeft.getSelectedSensorVelocity();
+  }
+
+  public double getRightVelocity(){
+    return FrontRight.getSelectedSensorVelocity();
+  }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     SmartDashboard.putNumber("Compass Heading", this.getHeading());
-    SmartDashboard.putNumber("Turn Rate", this.getTurnRate());
-    SmartDashboard.putNumber("Heading", this.getRawHeading());
-    SmartDashboard.putNumber("FrontRight Velocity", FrontRight.getSelectedSensorVelocity());
-    SmartDashboard.putNumber("BackLeft Velocity", BackLeft.getSelectedSensorVelocity());
+    SmartDashboard.putNumber("X Axis", this.getXAngle());
+    SmartDashboard.putNumber("Y Axis", this.getYAngle());
+    SmartDashboard.putNumber("Z Axis", this.getYAngle());
+    SmartDashboard.putNumber("FrontRight Velocity", this.getRightVelocity());
+    SmartDashboard.putNumber("BackLeft Velocity", this.getLeftVelocity());
+    SmartDashboard.putNumber("X Acceleration", this.getXAcceleration());
+    SmartDashboard.putNumber("Y Acceleration", this.getYAcceleration());
+    SmartDashboard.putNumber("Z Acceleration", this.getZAcceleration());
+    SmartDashboard.putNumber("Pitch", this.getPitch());
+    SmartDashboard.putNumber("Yaw", this.getYaw());
+    SmartDashboard.putNumber("Roll", this.getRoll());
   }
 }

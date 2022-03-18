@@ -17,12 +17,8 @@ public class FeederSubsystem extends SubsystemBase {
 
   public FeederSubsystem() {}
 
-  public void feeding(){
-    feeder.set(SpeedConstants.kFeedSpeed);
-  }
-
-  public void recalling(){
-      feeder.set(-SpeedConstants.kFeedSpeed);
+  public void feeding(double Speed){
+    feeder.set(Speed);
   }
   
   @Override

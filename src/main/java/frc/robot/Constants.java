@@ -1,7 +1,3 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot;
 
 // the date is 16th March and Aarav is absent
@@ -36,17 +32,17 @@ public final class Constants {
     }
 
     public final class MotorConstants{
-        public static final int kDriveLeftFront = 43;
-        public static final int kDriveRightFront = 0;
-        public static final int kDriveLeftBack = 0;
-        public static final int kDriveRightBack = 0;
+        public static final int kDriveLeftFront = 1;
+        public static final int kDriveLeftBack = 2;
+        public static final int kDriveRightFront = 3;
+        public static final int kDriveRightBack = 4;
 
-        public static final int kShooter = 0;
-        public static final int kFeeder = 0;
-        public static final int kIntake = 0;
+        public static final int kShooter = 7;
+        public static final int kFeeder = 8;
+        public static final int kIntake = 5;
 
-        public static final int kPrimaryElevator = 0;
-        public static final int kSecondaryElevator = 0;
+        public static final int kPrimaryElevator = 1;
+        public static final int kSecondaryElevator = 2;
 
         // Add CAN IDs
     }
@@ -56,6 +52,7 @@ public final class Constants {
         
         public static final double kIntakeSpeed = 0.5;
         public static final double kFeedSpeed = 0.5;
+        public static final double kTrajectoryModel = 1;
 
         public static final double kPrimaryUpSpeed = 0.75;
         public static final double kSecondaryUpSpeed = 0.75;

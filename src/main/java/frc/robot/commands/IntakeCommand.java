@@ -5,13 +5,11 @@ import frc.robot.subsystems.IntakeSubsystem;
 
 public class IntakeCommand extends CommandBase {
     private IntakeSubsystem Intake;
-    private boolean TakeIn;
-    private boolean TakeOut;
+    private double Speed;
 
-    public IntakeCommand(IntakeSubsystem intake, boolean takein, boolean takeout){
+    public IntakeCommand(IntakeSubsystem intake, double speed){
         this.Intake = intake;
-        this.TakeIn = takein;
-        this.TakeOut = takeout;
+        this.Speed = speed;
         addRequirements(intake);
     }
 
@@ -22,12 +20,7 @@ public class IntakeCommand extends CommandBase {
 
     @Override
     public void execute(){
-        if (TakeIn == true){
-            Intake.intaking();
-        }
-        else if (TakeOut == true){
-            Intake.outtaking();
-        }
+        Intake.intaking(Speed);
     }
 
     @Override

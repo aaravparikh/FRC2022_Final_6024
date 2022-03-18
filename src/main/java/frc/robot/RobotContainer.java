@@ -12,6 +12,7 @@ import frc.robot.commands.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.JoystickConstants;
+import frc.robot.Constants.SpeedConstants;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -45,24 +46,24 @@ public class RobotContainer {
    */
 
   private void configureButtonBindings() {
-    new JoystickButton(DriveStick, JoystickConstants.Brake).whileHeld(() -> RobotDrive.arcadeDrive(0, 0));
-    new JoystickButton(DriveStick, JoystickConstants.Boost).whileHeld(() -> RobotDrive.arcadeDrive(DriveStick.getY(), DriveStick.getZ()));
-    new JoystickButton(DriveStick, JoystickConstants.Intake).whileHeld(() -> Intake.intaking());
-    new JoystickButton(DriveStick, JoystickConstants.Outtake).whileHeld(() -> Intake.outtaking());
-    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorUp).whileHeld(() -> Elevator.StraightUp());
-    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorDown).whileHeld(() -> Elevator.StraightDown());
-    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.AngledUp());
-    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whileHeld(() -> Elevator.AngledDown());
-    new JoystickButton(SystemsStick, JoystickConstants.FeedIn).whileHeld(() -> Feeder.feeding());
-    new JoystickButton(SystemsStick, JoystickConstants.FeedOut).whileHeld(() -> Feeder.recalling());
-    new JoystickButton(SystemsStick, JoystickConstants.Shoot).whileHeld(() -> Shooter.shoot(1));
+    new JoystickButton(DriveStick, JoystickConstants.Brake).whenPressed(() -> RobotDrive.arcadeDrive(0, 0));
+    new JoystickButton(DriveStick, JoystickConstants.Boost).whenPressed(() -> RobotDrive.SetMax(1)).whenReleased(() -> RobotDrive.SetMax(0.8));
+    new JoystickButton(DriveStick, JoystickConstants.Intake).whenPressed(new IntakeCommand(Intake, 0.5)).whenReleased(new IntakeCommand(Intake, 0));
+    new JoystickButton(DriveStick, JoystickConstants.Outtake).whenPressed(new IntakeCommand(Intake, -0.5)).whenReleased(new IntakeCommand(Intake, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorUp).whenPressed(new StraightElevatorCommand(Elevator, 0.4)).whenReleased(new StraightElevatorCommand(Elevator, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorDown).whenPressed(new StraightElevatorCommand(Elevator, -0.4)).whenReleased(new StraightElevatorCommand(Elevator, 0)); //.whenReleased(new StraightElevatorDownCommand(Elevator, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorUp).whenPressed(new AngledElevatorCommand(Elevator, 0.4)).whenReleased(new AngledElevatorCommand(Elevator, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whenPressed(new AngledElevatorCommand(Elevator, -0.4)).whenReleased(new AngledElevatorCommand(Elevator, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.FeedIn).whenPressed(new FeederCommand(Feeder, 0.75)).whenReleased(new FeederCommand(Feeder, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.FeedOut).whenPressed(new FeederCommand(Feeder, -0.75)).whenReleased(new FeederCommand(Feeder, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.Shoot).whenPressed(new ShooterCommand(Shooter, -0.75)).whenReleased(new ShooterCommand(Shooter, 0));
 
-    RobotDrive.setDefaultCommand(new DriveCommand (RobotDrive, () -> DriveStick.getY()*0.75, () -> DriveStick.getZ()*0.75));
-    Elevator.setDefaultCommand(new StraightElevatorCommand (Elevator, false, false));
-    Elevator.setDefaultCommand(new AngledElevatorCommand (Elevator, false, false));
-    Intake.setDefaultCommand(new IntakeCommand (Intake, false, false));
-    Feeder.setDefaultCommand(new FeederCommand (Feeder, false, false));
-    Shooter.setDefaultCommand(new ShooterCommand (Shooter, false));
+    RobotDrive.setDefaultCommand(new DriveCommand (RobotDrive, () -> DriveStick.getY()*0.8, () -> DriveStick.getZ()*0.8));
+    //Elevator.setDefaultCommand(new StraightElevatorCommand (Elevator, false, false));
+    //Elevator.setDefaultCommand(new AngledElevatorCommand (Elevator, false, false));
+    //Intake.setDefaultCommand(new IntakeCommand (Intake, false, false));
+    //Feeder.setDefaultCommand(new FeederCommand (Feeder, false, false));
+    //Shooter.setDefaultCommand(new ShooterCommand (Shooter, false));
   }
 
   /**

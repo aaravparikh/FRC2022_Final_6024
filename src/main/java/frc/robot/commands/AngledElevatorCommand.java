@@ -5,13 +5,11 @@ import frc.robot.subsystems.ElevatorSubsystem;
 
 public class AngledElevatorCommand extends CommandBase {
     private ElevatorSubsystem Elevator;
-    private boolean UpSlant;
-    private boolean DownSlant;
+    private double Speed;
 
-    public AngledElevatorCommand(ElevatorSubsystem elevator, boolean UpSlant, boolean DownSlant){
+    public AngledElevatorCommand(ElevatorSubsystem elevator, double speed){
         this.Elevator = elevator;
-        this.UpSlant = UpSlant;
-        this.DownSlant = DownSlant;
+        this.Speed = speed;
         addRequirements(elevator);
     }
 
@@ -22,12 +20,7 @@ public class AngledElevatorCommand extends CommandBase {
 
     @Override
     public void execute(){
-        if (UpSlant == true){
-            Elevator.AngledUp();
-        }
-        else if (DownSlant == true){
-            Elevator.AngledDown();
-        }
+        Elevator.Angled(Speed);
     }
 
     @Override
