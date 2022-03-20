@@ -48,15 +48,16 @@ public class RobotContainer {
   private void configureButtonBindings() {
     new JoystickButton(DriveStick, JoystickConstants.Brake).whenPressed(() -> RobotDrive.arcadeDrive(0, 0));
     new JoystickButton(DriveStick, JoystickConstants.Boost).whenPressed(() -> RobotDrive.SetMax(1)).whenReleased(() -> RobotDrive.SetMax(0.8));
-    new JoystickButton(DriveStick, JoystickConstants.Intake).whenPressed(new IntakeCommand(Intake, 0.5)).whenReleased(new IntakeCommand(Intake, 0));
-    new JoystickButton(DriveStick, JoystickConstants.Outtake).whenPressed(new IntakeCommand(Intake, -0.5)).whenReleased(new IntakeCommand(Intake, 0));
-    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorUp).whenPressed(new StraightElevatorCommand(Elevator, 0.4)).whenReleased(new StraightElevatorCommand(Elevator, 0));
-    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorDown).whenPressed(new StraightElevatorCommand(Elevator, -0.4)).whenReleased(new StraightElevatorCommand(Elevator, 0)); //.whenReleased(new StraightElevatorDownCommand(Elevator, 0));
-    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorUp).whenPressed(new AngledElevatorCommand(Elevator, 0.4)).whenReleased(new AngledElevatorCommand(Elevator, 0));
-    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whenPressed(new AngledElevatorCommand(Elevator, -0.4)).whenReleased(new AngledElevatorCommand(Elevator, 0));
-    new JoystickButton(SystemsStick, JoystickConstants.FeedIn).whenPressed(new FeederCommand(Feeder, 0.75)).whenReleased(new FeederCommand(Feeder, 0));
-    new JoystickButton(SystemsStick, JoystickConstants.FeedOut).whenPressed(new FeederCommand(Feeder, -0.75)).whenReleased(new FeederCommand(Feeder, 0));
-    new JoystickButton(SystemsStick, JoystickConstants.Shoot).whenPressed(new ShooterCommand(Shooter, -0.75)).whenReleased(new ShooterCommand(Shooter, 0));
+    new JoystickButton(DriveStick, JoystickConstants.Intake).whenPressed(new IntakeCommand(Intake, SpeedConstants.IntakeSpeed)).whenReleased(new IntakeCommand(Intake, 0));
+    new JoystickButton(DriveStick, JoystickConstants.Outtake).whenPressed(new IntakeCommand(Intake, -SpeedConstants.IntakeSpeed)).whenReleased(new IntakeCommand(Intake, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorUp).whenPressed(new StraightElevatorCommand(Elevator, SpeedConstants.ElevatorSpeed)).whenReleased(new StraightElevatorCommand(Elevator, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.StraightElevatorDown).whenPressed(new StraightElevatorCommand(Elevator, -SpeedConstants.ElevatorSpeed)).whenReleased(new StraightElevatorCommand(Elevator, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorUp).whenPressed(new AngledElevatorCommand(Elevator, SpeedConstants.ElevatorSpeed)).whenReleased(new AngledElevatorCommand(Elevator, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.AngledElevatorDown).whenPressed(new AngledElevatorCommand(Elevator, -SpeedConstants.ElevatorSpeed)).whenReleased(new AngledElevatorCommand(Elevator, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.FeedIn).whenPressed(new FeederCommand(Feeder, SpeedConstants.FeedSpeed)).whenReleased(new FeederCommand(Feeder, 0));
+    new JoystickButton(SystemsStick, JoystickConstants.FeedOut).whenPressed(new FeederCommand(Feeder, -SpeedConstants.FeedSpeed)).whenReleased(new FeederCommand(Feeder, 0));
+    
+    new JoystickButton(SystemsStick, JoystickConstants.Shoot).whenPressed(new ShooterCommand(Shooter, -SpeedConstants.TrajectoryModel)).whenReleased(new ShooterCommand(Shooter, 0));
 
     RobotDrive.setDefaultCommand(new DriveCommand (RobotDrive, () -> DriveStick.getY()*0.8, () -> DriveStick.getZ()*0.8));
     //Elevator.setDefaultCommand(new StraightElevatorCommand (Elevator, false, false));

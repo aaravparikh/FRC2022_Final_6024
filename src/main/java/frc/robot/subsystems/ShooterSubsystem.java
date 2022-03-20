@@ -15,10 +15,9 @@ import frc.robot.Constants.MotorConstants;
 public class ShooterSubsystem extends SubsystemBase {
   /** Creates a new ShooterSubsystem. */
 
-  private final WPI_TalonSRX cannon = new WPI_TalonSRX(MotorConstants.kShooter);
+  private final WPI_TalonSRX cannon = new WPI_TalonSRX(MotorConstants.Shooter);
 
-  public ShooterSubsystem() {
-  }
+  public ShooterSubsystem() {}
 
   public void shoot(double speed){
     cannon.set(speed);

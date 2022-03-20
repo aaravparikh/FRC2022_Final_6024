@@ -7,13 +7,12 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
-import frc.robot.Constants.SpeedConstants;
 
 public class ElevatorSubsystem extends SubsystemBase {
   /** Creates a new ElevatorSubsystem. */
 
-  private final VictorSP StraightElevator = new VictorSP(MotorConstants.kPrimaryElevator);
-  private final VictorSP AngledElevator = new VictorSP(MotorConstants.kSecondaryElevator);
+  private final VictorSP StraightElevator = new VictorSP(MotorConstants.PrimaryElevator);
+  private final VictorSP AngledElevator = new VictorSP(MotorConstants.SecondaryElevator);
 
   public ElevatorSubsystem() {}
 

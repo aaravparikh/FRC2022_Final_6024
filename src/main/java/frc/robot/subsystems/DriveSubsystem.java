@@ -16,10 +16,10 @@ import com.kauailabs.navx.frc.AHRS;
 public class DriveSubsystem extends SubsystemBase {
   /** Creates a new DriveSubsystem. */
 
-  private final WPI_TalonSRX FrontLeft = new WPI_TalonSRX(MotorConstants.kDriveLeftFront);
-  private final WPI_TalonSRX BackLeft = new WPI_TalonSRX(MotorConstants.kDriveLeftBack);
-  private final WPI_TalonSRX FrontRight = new WPI_TalonSRX(MotorConstants.kDriveRightFront);
-  private final WPI_TalonSRX BackRight = new WPI_TalonSRX(MotorConstants.kDriveRightBack);
+  private final WPI_TalonSRX FrontLeft = new WPI_TalonSRX(MotorConstants.LeftFront);
+  private final WPI_TalonSRX BackLeft = new WPI_TalonSRX(MotorConstants.LeftBack);
+  private final WPI_TalonSRX FrontRight = new WPI_TalonSRX(MotorConstants.RightFront);
+  private final WPI_TalonSRX BackRight = new WPI_TalonSRX(MotorConstants.RightBack);
 
   private final AHRS NavX = new AHRS();
 

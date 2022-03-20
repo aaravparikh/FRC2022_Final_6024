@@ -32,29 +32,28 @@ public final class Constants {
     }
 
     public final class MotorConstants{
-        public static final int kDriveLeftFront = 1;
-        public static final int kDriveLeftBack = 2;
-        public static final int kDriveRightFront = 3;
-        public static final int kDriveRightBack = 4;
+        public static final int LeftFront = 1;
+        public static final int LeftBack = 2;
+        public static final int RightFront = 3;
+        public static final int RightBack = 4;
 
-        public static final int kShooter = 7;
-        public static final int kFeeder = 8;
-        public static final int kIntake = 5;
+        public static final int Shooter = 7;
+        public static final int Feeder = 5;
+        public static final int Intake = 8;
 
-        public static final int kPrimaryElevator = 1;
-        public static final int kSecondaryElevator = 2;
+        public static final int PrimaryElevator = 1;
+        public static final int SecondaryElevator = 2;
 
-        // Add CAN IDs
     }
 
     public final class SpeedConstants{
-        // public static final double kMaxDriveSpeed = 0.8;
-        
-        public static final double kIntakeSpeed = 0.5;
-        public static final double kFeedSpeed = 0.5;
-        public static final double kTrajectoryModel = 1;
+        public static final double DriveSpeed = 0.8;
 
-        public static final double kPrimaryUpSpeed = 0.75;
-        public static final double kSecondaryUpSpeed = 0.75;
+        public static final double IntakeSpeed = 0.5;
+        public static final double FeedSpeed = 0.5;
+
+        public static final double TrajectoryModel = 1;
+
+        public static final double ElevatorSpeed = 0.4;
     }
 }

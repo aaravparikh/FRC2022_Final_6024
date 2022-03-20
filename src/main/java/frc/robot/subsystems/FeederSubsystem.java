@@ -8,12 +8,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
-import frc.robot.Constants.SpeedConstants;
 
 public class FeederSubsystem extends SubsystemBase {
   /** Creates a new ShooterSubsystem. */
 
-  private final WPI_TalonSRX feeder = new WPI_TalonSRX(MotorConstants.kFeeder);
+  private final WPI_TalonSRX feeder = new WPI_TalonSRX(MotorConstants.Feeder);
 
   public FeederSubsystem() {}
 
