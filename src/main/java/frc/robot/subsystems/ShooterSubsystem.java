@@ -5,6 +5,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.Encoder;
 //import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -13,10 +15,9 @@ import frc.robot.Constants.MotorConstants;
 public class ShooterSubsystem extends SubsystemBase {
   /** Creates a new ShooterSubsystem. */
 
-  private final WPI_TalonSRX cannon = new WPI_TalonSRX(MotorConstants.kShooter);
+  private final WPI_TalonSRX cannon = new WPI_TalonSRX(MotorConstants.Shooter);
 
-  public ShooterSubsystem() {
-  }
+  public ShooterSubsystem() {}
 
   public void shoot(double speed){
     cannon.set(speed);
@@ -39,5 +40,6 @@ public class ShooterSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Shooter RPM", cannon.getSelectedSensorVelocity());
   }
 }

@@ -5,13 +5,11 @@ import frc.robot.subsystems.ElevatorSubsystem;
 
 public class StraightElevatorCommand extends CommandBase {
     private ElevatorSubsystem Elevator;
-    private boolean GoUp;
-    private boolean GoDown;
+    private double Speed;
 
-    public StraightElevatorCommand(ElevatorSubsystem elevator, boolean GoUp, boolean GoDown){
+    public StraightElevatorCommand(ElevatorSubsystem elevator, double speed){
         this.Elevator = elevator;
-        this.GoUp = GoUp;
-        this.GoDown = GoDown;
+        this.Speed = speed;
         addRequirements(elevator);
     }
 
@@ -22,14 +20,9 @@ public class StraightElevatorCommand extends CommandBase {
 
     @Override
     public void execute(){
-        if (GoUp == true){
-            Elevator.StraightUp();
-        }
-        else if (GoDown == true){
-            Elevator.StraightDown();
-        }
+        Elevator.Straight(Speed);
     }
-
+        
     @Override
     public void end (boolean interrupted){
     }

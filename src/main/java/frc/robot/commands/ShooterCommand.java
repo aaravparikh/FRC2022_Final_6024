@@ -5,11 +5,11 @@ import frc.robot.subsystems.ShooterSubsystem;
 
 public class ShooterCommand extends CommandBase {
     private ShooterSubsystem Shooter;
-    private boolean Shoot;
+    private double Speed;
 
-    public ShooterCommand(ShooterSubsystem shooter, boolean shoot){
+    public ShooterCommand(ShooterSubsystem shooter, double speed){
         this.Shooter = shooter;
-        this.Shoot = shoot;
+        this.Speed = speed;
         addRequirements(shooter);
     }
 
@@ -19,9 +19,7 @@ public class ShooterCommand extends CommandBase {
 
     @Override
     public void execute(){
-        if (Shoot == true){
-            Shooter.shoot(1);
-        }
+        Shooter.shoot(Speed);
     }
 
     @Override

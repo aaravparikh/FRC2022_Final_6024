@@ -5,13 +5,11 @@ import frc.robot.subsystems.FeederSubsystem;
 
 public class FeederCommand extends CommandBase {
     private FeederSubsystem Feeder;
-    private boolean InFeed;
-    private boolean OutFeed;
+    private double Speed;
 
-    public FeederCommand(FeederSubsystem feeder, boolean infeed, boolean outfeed){
+    public FeederCommand(FeederSubsystem feeder, double speed){
         this.Feeder = feeder;
-        this.InFeed = infeed;
-        this.OutFeed = outfeed;
+        this.Speed = speed;
         addRequirements(feeder);
     }
 
@@ -21,12 +19,7 @@ public class FeederCommand extends CommandBase {
 
     @Override
     public void execute(){
-        if (InFeed == true){
-            Feeder.feeding();
-        }
-        else if (OutFeed == true){
-            Feeder.recalling();
-        }
+        Feeder.feeding(Speed);
     }
 
     @Override
